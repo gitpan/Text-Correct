@@ -2,7 +2,7 @@
 
 This module is an alternative to Text::Wrap, for text wrapping.
 
-This is Text::Correct v0.01.
+This is Text::Correct v0.02.
 
 To learn more, go to http://www.pobox.com/~japhy/perl/
 Jeff Pinyan, japhy+perl@pobox.com, CPAN ID: PINYAN.
@@ -13,7 +13,7 @@ Jeff Pinyan, japhy+perl@pobox.com, CPAN ID: PINYAN.
 Unpack the .tar.gz file.
 
 Run:
-	cd Text-Correct-0.01/
+	cd Text-Correct-0.02/
         perl Makefile.PL
         make
         make test
@@ -49,6 +49,15 @@ DESCRIPTION
         each subsequent line. Following that is a list of lines of
         text. The function is not exported by default.
 
+    expand(TEXT)
+        This converts tabs to NULL characters. This function is used
+        internally, but is governed by the $TAB variable.
+
+    unexpand(TEXT)
+        This converts series of NULL characters to tabs. This
+        function is used internally, but is governed by the $TAB
+        variable.
+
   Variables
 
     $Text::Correct::MAX_LEN
@@ -62,12 +71,22 @@ DESCRIPTION
         will be treated as a single block, which means the text is
         condensed into one paragraph.
 
+    $Text::Correct::TAB
+        This holds the number of spaces a tab is to represent. It
+        defaults to 8, and is used in determining the length of a
+        string with tabs in it.
+
 COMING SOON
     I plan to reimplement this module using formline().
+
+BUGS
+    If text contains NULL characters, expand() and unexpand() will
+    not work properly. Fix: don't use NULL characters. ;)
 
 AUTHOR
     Jeff Pinyan, japhy+perl@pobox.com, CPAN ID: PINYAN
 
 SEE ALSO
       Text::Wrap
+      Text::Tabs
 

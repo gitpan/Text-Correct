@@ -18,10 +18,11 @@ print "ok 1\n";
 # (correspondingly "not ok 13") depending on the success of chunk 13
 # of the test code):
 
-$Text::Correct::MAX_LEN = 20;
+$Text::Correct::MAX_LEN = 25;
 $Text::Correct::PARA = 0;
 
-$output = wrap "", "", << "END OF TEXT";
+print "1234567890123456789012345\n";
+print $output = wrap "\t", "", << "END OF TEXT";
 This is going to be formatted
 in a certain
   way when
@@ -34,9 +35,8 @@ you'll see!
 END OF TEXT
 
 print $output eq << "END OF TEXT" ? "ok 2\n" : "not ok 2\n";
-This is going to be
-formatted in a
-certain way when
-THIS IS all done!
-you'll see!
+	This is going to
+be formatted in a
+certain way when THIS IS
+all done!  you'll see!
 END OF TEXT

@@ -1,5 +1,10 @@
 Revision history for Perl extension Text::Correct.
 
+0.02  Tue Nov  9 12:41:14 1999
+	- fixed $PARA bug
+	- fixed wrap()
+	- added expand() and unexpand() and $TAB
+
 0.01  Mon Nov  8 20:52:42 1999
 	- original version; created by h2xs 1.18
 
