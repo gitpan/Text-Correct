@@ -34,9 +34,15 @@ done!
 you'll see!
 END OF TEXT
 
-print $output eq << "END OF TEXT" ? "ok 2\n" : "not ok 2\n";
+if ($output eq << "END OF TEXT") {
 	This is going to
-be formatted in a
-certain way when THIS IS
-all done!  you'll see!
+be formatted in a certain
+way when THIS IS all
+done!  you'll see!
 END OF TEXT
+	print "ok 2\n";
+}
+else {
+	print "not ok 2\n";
+	exit 1;
+}

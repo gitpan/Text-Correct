@@ -11,7 +11,7 @@ require Exporter;
 	$MAX_LEN $PARA $TAB
 );
 
-$VERSION = '0.02';
+$VERSION = '0.021';
 
 $MAX_LEN = 72;
 $PARA = 1;
