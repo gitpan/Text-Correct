@@ -1,0 +1,73 @@
+== INFORMATION ==
+
+This module is an alternative to Text::Wrap, for text wrapping.
+
+This is Text::Correct v0.01.
+
+To learn more, go to http://www.pobox.com/~japhy/perl/
+Jeff Pinyan, japhy+perl@pobox.com, CPAN ID: PINYAN.
+
+
+== INSTALLATION INSTRUCTIONS ==
+
+Unpack the .tar.gz file.
+
+Run:
+	cd Text-Correct-0.01/
+        perl Makefile.PL
+        make
+        make test
+        make install
+
+
+== MANUAL ==
+
+NAME
+    Text::Correct - Module for implementing text wrapping
+
+SYNOPSIS
+        use Text::Correct qw( wrap $MAX_LEN $PARA );
+        $MAX_LEN = 60;  # 60 columns of text
+        $PARA = 0;      # condense newlines
+        print wrap($firstline_lead, $otherline_lead, @text);
+
+        use Text::Correct qw( wrap );
+        wrap("\t", "", $speech);  # "regular" paragraph formatting    
+
+DESCRIPTION
+    This module is sort of a different approach to text wrapping
+    than taken in Text::Wrap. This module allows for condensing of
+    newlines, to format long blocks of text into one, or (as the
+    default) to format paragraphs (these are blocks of text
+    separated by two or more newlines) individually.
+
+  Functions
+
+    wrap(INITAL_LEAD, SUBSEQUENT_LEAD, TEXT)
+        The first argument is the lead to be placed in front of the
+        first line; the second is the lead to be placed in front of
+        each subsequent line. Following that is a list of lines of
+        text. The function is not exported by default.
+
+  Variables
+
+    $Text::Correct::MAX_LEN
+        The number of characters of text (excluding a newline) per
+        line.
+
+    $Text::Correct::PARA
+        A boolean deciding whether or not to invoke paragraph mode.
+        If paragraph mode is on, text will be split up into blocks
+        separated by two or more newlines. If it is off, the text
+        will be treated as a single block, which means the text is
+        condensed into one paragraph.
+
+COMING SOON
+    I plan to reimplement this module using formline().
+
+AUTHOR
+    Jeff Pinyan, japhy+perl@pobox.com, CPAN ID: PINYAN
+
+SEE ALSO
+      Text::Wrap
+
